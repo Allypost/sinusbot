@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  sinusbot:
+    build: .
+    ports:
+      - "8087:8087"
+    volumes:
+      - "scripts:/opt/sinusbot/scripts"
+      - "data:/opt/sinusbot/data"
+      - "youtube-dl:/opt/sinusbot/youtube-dl"
+      - "./config.ini:/opt/sinusbot/data/config.ini"
+    environment:
+      OVERRIDE_PASSWORD: "${OVERRIDE_PASSWORD}"
+
+volumes:
+  scripts: {}
+  data: {}
+  youtube-dl: {}
