@@ -2,9 +2,8 @@ FROM sinusbot/docker
 
 RUN apt-get update && apt-get install python
 
-RUN YOUTUBE_DL_DIR='/opt/sinusbot/youtube-dl' \
-    mkdir "${YOUTUBE_DL_DIR}" \
-    && cd "${YOUTUBE_DL_DIR}" \
+RUN mkdir "/opt/sinusbot/youtube-dl" \
+    && cd "/opt/sinusbot/youtube-dl" \
     && curl -L -O https://yt-dl.org/downloads/latest/youtube-dl \
     && chmod a+rx youtube-dl \
     && chown $(id -u) youtube-dl
